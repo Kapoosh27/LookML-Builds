@@ -1,0 +1,829 @@
+view: delegates_summary2023_tab_view {
+  # # You can specify the table name if it's different from the view name:
+  # sql_table_name: my_schema_name.tester ;;
+  #
+  sql_table_name: `thermal-antenna-293710.LionsSalesforce.vwDelegates`
+    ;;
+
+  # # Define your dimensions and measures here, like this:
+  # dimension: user_id {
+  #   description: "Unique ID for each user that has ordered"
+  #   type: number
+  #   sql: ${TABLE}.user_id ;;
+  # }
+
+  dimension: Pass_type_group {
+    type: string
+    sql: CASE
+  WHEN (${TABLE}.ProductName IN ('CLASSIC', '4 Day', '4 Day + Companion', '4 Day + Speaker (Lions Health)', '4 Day Registration', '4 Day Registration + Companion', '4 Day Registration + Lions Health', '4 DAY REGISTRATION FOR MA', '4 Day Registration for Nestlé', '4 Day Speaker', '8 Day Classic', 'Classic', 'CLASSIC + BACKSTAGE', 'Classic + Companion', 'CLASSIC + COMPANION (LIONS INNOVATION)', 'CLASSIC + JURY - HEALTH & WELLNESS', 'CLASSIC + JURY - PHARMA', 'CLASSIC + JURY INNOVATION', 'CLASSIC + LIONS HEALTH', 'CLASSIC + PALAIS ACCESS (LIONS HEALTH)', 'CLASSIC + SPEAKER (CANNES LIONS + LIONS HEALTH)', 'CLASSIC + SPEAKER (CANNES LIONS + LIONS INNOVATION)', 'CLASSIC + SPEAKER (CANNES LIONS)', 'Classic + Speaker (Lions Entertainment)', 'CLASSIC + SPEAKER (LIONS HEALTH)', 'CLASSIC + SPEAKER (LIONS INNOVATION)', 'CLASSIC GOLD + LIONS HEALTH', 'CLASSIC GOLD + SPEAKER (LIONS HEALTH)', 'CLASSIC GOLD + SPEAKER (LIONS INNOVATION)', 'Complete', 'Complete - Complimentary', 'Complete @ Classic Rate', 'Complete + Companion', 'Complete Value', 'Full Reg at 4 Day Rate', 'Full Registration', 'Full Registration & Speaker', 'Full Registration + Cannes Lions 3 Day Registration', 'Full Registration + Cannes Lions 3 Day Registration with Companion', 'Full Registration + Cannes Lions 4 Day Registration', 'Full Registration + Cannes Lions Full Registration', 'Full Registration + Companion', 'Full Registration + Companion (Awards)', 'Full Registration + Lions Health', 'Full Registration for AOL', 'Full Registration for MA', 'Full Registration for MA + Speaker', 'FULL REGISTRATION FOR MICROSOFT', 'Full Registration for Nestlé', 'Group 3 Day Registration', 'Group 3 Day Registration + Lions Health', 'Group 3 Day Registration + Speaker', 'Group 4 Day Registration', 'Group 4 Day Registration + Lions Health', 'Group Full Registration', 'Group Full Registration + Companion', 'Group Full Registration + Lions Health', 'Group Full Registration + Speaker', 'Group-Full Registration', 'MINI', 'Mini + Companion', 'MINI + JURY - HEALTH & WELLNESS', 'MINI + LIONS HEALTH', 'MINI + LIONS INNOVATION', 'MINI + SPEAKER (CANNES LIONS)', 'MINI + SPEAKER (LIONS ENTERTAINMENT)', 'MINI + SPEAKER (LIONS HEALTH)', 'Complete - Early Bird', 'Complete - Super Early Bird', 'Complete - Half Price', 'Complete - Rebook', 'Complete - 2022', 'Complete - 2021', 'Complete - Transfer')) THEN 'Complete'
+  WHEN ((${TABLE}.ProductName) = 'Creative Brand Marketer') THEN 'Creative Brand Marketer'
+  WHEN ((${TABLE}.ProductName) = 'Digital Pass') THEN 'Digital'
+  WHEN (${TABLE}.ProductName IN ('4 Day Young Agency Executive Registration', '4 Day Young Creative Registration', '4 Day Young Lion', '4 Day Young Lion + Companion', '4 Day Young Marketer Registration', '4 Day Young Marketer Registration + Lions Health', 'Account Leadership Academy', 'Bob Isherwood Young Creative Academy', 'CEO Academy', 'CEO Academy at 2013 Rate', 'CEO Academy at FR Rate', 'CLASSIC STUDENT', 'CLASSIC STUDENT + HEALTH STUDENT FOR UGA', 'CLASSIC STUDENT + LIONS HEALTH', 'CLASSIC YOUNG CREATIVE', 'CLASSIC YOUNG CREATIVE + COMPANION', 'CLASSIC YOUNG CREATIVE + LIONS HEALTH', 'Classic Young Lion', 'Classic Young Lion @ Classic Rate', 'Classic Young Lion + Companion', 'CLASSIC YOUNG MARKETER', 'Complete Student', 'Complete Student @ Classic Student Rate', 'Complete Student Special Offer', 'Complete Young Lion', 'Complete Young Lion + Companion', 'Creative Academy', 'CREATIVE ACADEMY @ CLASSIC RATE', 'Creative Academy + Lions Health', 'Creative Social Media Academy', 'Full Young Agency Executive Registration', 'Full Young Creative Registration', 'Full Young Marketer Competitor', 'Full Young Marketer Registration', 'Group Student Registration', 'Group-Young Creative Registration', 'Jim Stengel Young Marketers Academy', 'Lions Entertainment Student', 'Lions Entertainment Young Lion', 'Lions Health Student', 'LIONS HEALTH YOUNG CREATIVE', 'Lions Health Young Lion', 'Lions Health Young Lion + Companion', 'LIONS HEALTH YOUNG MARKETER', 'LIONS INNOVATION - UNILEVER FOUNDRY', 'Lions Innovation Student', 'LIONS INNOVATION YOUNG CREATIVE', 'Lions Innovation Young Lion', 'LIONS INNOVATION YOUNG MARKETER', 'LIONS MASTERS OF CREATIVITY', 'LIONS MASTERS OF CREATIVITY (CLASSIC GOLD RATE)', 'LIONS MASTERS OF CREATIVITY (YCA RATE)', 'LIONS MASTERS OF CREATIVITY (YOUNG)', 'Marketers Academy', 'Marketers Academy + Companion', 'Marketers Academy + Lions Health', 'Masters of Creativity', 'MASTERS OF CREATIVITY @ CLASSIC RATE', 'Masters of Creativity + Lions Health', 'Media Academy', 'Media Academy + Companion + Lions Health', 'MICHIGAN STATE UNIVERSITY', 'MINI YOUNG CREATIVE', 'MINI YOUNG CREATIVE + LIONS HEALTH', 'Mini Young Lion', 'MINI YOUNG MARKETER', 'MINI YOUNG MARKETER + LIONS HEALTH', 'Student Registration', 'Unilever Foundry Guest', 'YOUNG ACCOUNT  EXECUTIVE ACADEMY', 'Young Account Executive Academy', 'Young Account Executive Academy at YL4 Rate', 'Young Account Planners Academy', 'Young Account Planners Academy at YL4 Rate', 'Young Agency Executive Registration', 'YOUNG CREATIVE ACADEMY', 'Young Creative Academy at YLCF Rate', 'Young Creative Competitor at 4 Day Rate', 'Young Creative Registration', 'Young Lion Competitor', 'Young Lion Competitor (Complete YL)', 'Young Lion Competitor (Complete)', 'Young Lion Competitor @ 4 Day YL Rate', 'Young Lion Competitor @ Classic Rate', 'YOUNG LION COMPETITOR @ CLASSIC YOUNG LION RATE', 'Young Lion Competitor + Companion', 'YOUNG LIONS CLASSIC COMPETITOR', 'Young Lions Competitor 4 Day', 'Young Lions Competitor Full Week', 'YOUNG LIONS MINI COMPETITOR', 'Young Lions Storytellig Academy at YLCF Rate', 'Young Lions Storytelling Academy', 'Young Marketer Competitor at 4 Day Rate', 'Young Marketer Registration', 'Young Marketer Registration + Cannes Lions 4 Day Young Marketer Registration', 'YOUNG MARKETERS ACADEMY', 'YOUNG MARKETERS ACADEMY (CLASSIC RATE)', 'Young Media Academy', 'Young Media Academy at YLCF Rate', 'Marketers Academy - Early Bird', 'Media Academy - Early Bird', 'Creative Academy - Early Bird', 'Brand Marketers Academy - Early Bird', 'Brand Marketers Academy', 'Complete Young Lion - 2022', 'Complete Student - 2022', 'Young Lion Competitor - 2022', 'Marketers Academy - Early Bird - 2022', 'Marketers Academy - 2022', 'Media Academy - Early Bird - 2022', 'Media Academy - 2022', 'Creative Academy - Early Bird - 2022', 'Creative Academy - 2022', 'Michigan State University - 2022', 'Lions Health Young Lion - 2022', 'Lions Health Student - 2022', 'Brand Marketers Academy - Early Bird - 2022', 'Brand Marketers Academy - 2022', 'Digital Young Lion Competitor + Festival Access - 2022', 'Complete Young Lion - Transfer', 'Young Lion Competitor - Transfer', 'Digital Young LionÂ Competitor + Festival Access - 2022')) THEN 'Young / Student'
+  WHEN (${TABLE}.ProductName IN ('4 Day Platinum', 'CLASSIC PLATINUM', 'CLASSIC PLATINUM + COMPANION', 'CLASSIC PLATINUM + LIONS HEALTH', 'CLASSIC PLATINUM + LIONS HEALTH + SPEAKER (CANNES LIONS)', 'CLASSIC PLATINUM + SPEAKER (CANNES LIONS + LIONS HEALTH)', 'CLASSIC PLATINUM + SPEAKER (CANNES LIONS)', 'Classic Platinum + Speaker (Lions Entertainment)', 'Classic Platinum + Speaker (Lions Innovation)', 'Classic Platinum Upgrade from Classic', 'Classic Platinum Upgrade from Gold', 'Complete Platinum', 'Complete Platinum @ Complete Rate', 'MINI PLATINUM', 'Complete Platinum + CMO Accelerator Programme', 'Complete Platinum - Rebook', 'Complete Platinum - 2022', 'Complete Platinum - Transfer', 'Speaker Platinum')) THEN 'Platinum'
+  WHEN (${TABLE}.ProductName IN ('1 DAY (CANNES LIONS) + LIONS HEALTH', '1 DAY (CANNES LIONS) + LIONS HEALTH EARLY BIRD', '1 Day Cannes Lions - Thurs', '1 Day for China', '1 DAY FOR MOFILM', '1 Day for Saatchi', '1 DAY PASS (CANNES LIONS) + LIONS INNOVATION', '1 Day Paying', '1 Day Registration for Saatchi', '1 Day Saatchi & Saatchi', '1 Day Taster - Friday', '1 Day Taster - Thursday', '1 Day Taster - Tuesday', '1 Day Taster - Wednesday', '2 Day for Michigan State University', '2 Day Registration for Nestlé', '2 Day Sawa', '2 Day Sawa Monday/Tuesday', '2 Day SAWA Sunday/Monday', '2 DAY SAWA TUESDAY/WEDNESDAY', '3 Day Registration', '3 Day Registration + Companion', '3 Day Registration + Companion + Lions Health', '3 Day Registration + Lions Health', '3 Day Registration + Premier Lounge', '3 Day Registration for MA', '3 DAY REGISTRATION FOR MA + SPEAKER (CANNES LIONS) 1', '3 DAY REGISTRATION FOR MA + SPEAKER (CANNES LIONS) 2', '3 DAY SAWA', '3 DAY SAWA (2 DAY RATE)', '4 Day half price', '4 Day Registration + Premier Lounge', '4 Day Registration + Premier Lounge + Companion', '4 Day Registration + Premier Lounge + Lions Health', 'Cannes Creative Leaders Programme', 'Cannes Creative Leadership Programme', 'Cannes Creative Leadership Programme - Early Bird', 'CANNES CREATIVE LEADERSHIP PROGRAMME @ 2014 RATE', 'Classic Educator', 'Classic half price', 'CMO Accelerator Programme', 'CMO ACCELERATOR PROGRAMME (CLASSIC RATE)', 'CMO Accelerator Programme @ Classic Gold Client Experience', 'CMO Accelerator Programme + Cannes Clubhouse at 4DL Rate', 'CMO Accelerator Programme + Classic Platinum', 'CMO Accelerator Programme + Companion', 'CMO Accelerator Programme + Complete Platinum', 'CMO Accelerator Programme + Gold', 'CMO Accelerator Programme + Lions Health', 'CMO Accelerator Programme with Jim Stengel', 'CMO Accelerator Programme with Jim Stengel at 2013 Rate', 'Complete Educator', 'Complete Speaker Guest', 'Educator', 'EDUCATOR (FULL) + SPEAKER (LIONS INNOVATION)', 'EDUCATOR MINI', 'Full Registration + Cannes Lions 4 Day Registration + Premier Lounge', 'Full Registration + Cannes Lions Full Registration + Premier Lounge', 'Full Registration + Cannes Lions Premier Registration', 'Full Registration + Cannes Lions Premier Registration with Companion', 'Full Registration + Companion (Awards) + Premier Lounge', 'Full Registration + Companion + Premier Lounge', 'Full Registration + Premier Lounge', 'Full Registration + Premier Lounge + Lions Health', 'Group 4 Day Young Creative Registration', 'Group Full Young Creative Registration', 'Group Premier Registration', 'Group Premier Registration + Companion', 'Lions Entertainment', 'Lions Entertainment - Early Bird', 'Lions Entertainment - Super Early Bird', 'Lions Entertainment - Super Early Bird + Companion', 'Lions Entertainment + Companion', 'Lions Entertainment + Networking Upgrade', 'Lions Entertainment Educator', 'Lions Entertainment half price', 'Lions Entertainment half price upgrade to Classic', 'Lions Health', 'Lions Health - Early Bird', 'LIONS HEALTH - EARLY BIRD + COMPANION', 'Lions Health + Companion', 'Lions Health + Networking Upgrade', 'Lions Health Mini', 'Lions Health Speaker Guest', 'Lions Innovation', 'Lions Innovation - Early Bird', 'Lions Innovation - Early Bird + Networking Upgrade', 'Lions Innovation - Special', 'Lions Innovation + Companion', 'Lions Innovation + Networking Upgrade', 'LIONS INNOVATION + SPEAKER (CANNES LIONS)', 'Lions Innovation half price', 'Lions Innovation Start-Up', 'Lions Innovation YL + Lions Entertainment YL', 'Premier + CEO Academy', 'Premier Package', 'Premier Package & Speaker', 'Premier Package + Companion', 'Premier Package + Companion + Lions Health', 'Premier Package + Lions Health', 'Sat Awards & Closing Gala', 'Speaker (Cannes Lions)', 'Speaker 4 Day (Cannes Lions)', 'Speaker 4 Day (Lions Entertainment)', 'Speaker 4 Day (Lions Health)', 'Speaker 4 Day (Lions Innovation)', 'Speaker Complete', 'Speaker Guest Cannes Lions (Fri)', 'Speaker Guest Cannes Lions (Fri) - 2022', 'Speaker Guest Cannes Lions (Mon)', 'Speaker Guest Cannes Lions (Thurs)', 'Speaker Guest Cannes Lions (Tues)', 'Speaker Guest Cannes Lions (Tues) - 2022', 'Speaker Guest Cannes Lions (Wed)', 'Speaker Mini (Cannes Lions)', 'Speaker Mini (Lions Entertainment)', 'Speaker Mini (Lions Health)', 'Speaker Mini (Lions Innovation)', 'Start-Up', 'Yacht Complete', 'Speaker Guest Lions Health (Mon)', 'Speaker Guest Lions Health (Tues)', 'CMO Accelerator Programme (Class 2)', 'CMO Accelerator Programme (Class 1)', 'Digital Young Lion Competitor - 2021', 'CMO Accelerator Programme - 2022', 'Yacht Complete - 2022', 'Complete Educator - 2022', 'Speaker Complete - 2022', 'Cannes Creative Leadership Programme - 2022', 'Cannes Creative Leadership Programme - Early Bird - 2022', 'CMO Accelerator Programme - B2C - 2022', 'Lions Health - 2022', 'Start-Up - 2022', 'Custom Passes - 2022', 'Digital CMO Accelerator Programme', 'Digital CMO Accelerator Programme - 2021', 'Cannes Creative Leadership Programme - Early Bird - 2021', 'CMO Accelerator Programme - 2021', 'Digital Pass - 2021', 'Digital Young Lion Competitor - 2022', 'Speaker Guest Cannes Lions (Wed) - 2022', 'Speaker Guest Cannes Lions (Thurs) - 2022', '2 Day Sawa - 2022', 'Speaker Guest Cannes Lions (Mon) - 2022', 'Festival Representative - 2022', 'Speaker Guest Cannes Lions (Wed & Thurs) - 2022', 'CMO Accelerator Programme - Transfer', 'Speaker Guest - Thurs', 'Speaker Guest - Wed', 'Speaker Guest - Mon', 'Speaker Guest - Tues', 'Speaker Guest - Fri', '1 Day Cannes Lions - Tues', '1 Day Cannes Lions - Wed', '1 Day Cannes Lions - Fri', 'Press')) THEN 'Other'
+  WHEN (${TABLE}.ProductName IN ('Networking', 'Networking + Lions Entertainment', 'Networking + Lions Health', 'Networking + Lions Health Upgrade', 'Networking + Lions Innovation - Early Bird Upgrade', 'Networking + Lions Innovation Upgrade', 'NETWORKING + PALAIS ACCESS', 'Networking + Speaker (Lions Entertainment)', 'NETWORKING + SPEAKER (LIONS INNOVATION)', 'Networking half price', 'Networking - 2022')) THEN 'Networking'
+  WHEN (${TABLE}.ProductName IN ('4 Day Gold', 'Classic Gold', 'Classic Gold + Companion', 'Complete Gold', 'Complete Gold - Complimentary', 'Complete Gold + Companion', 'Complete Gold Bradesco', 'Complete Gold Value', 'MINI GOLD', 'Mini Gold + Companion', 'MINI GOLD + LIONS HEALTH', 'Complete Gold - Rebook', 'Complete Gold - 2022', 'Complete Gold - 2021', 'Complete Gold - Transfer', 'Speaker Gold')) THEN 'Gold'
+  WHEN (${TABLE}.ProductName IN ('Nameless fee', 'Name change fee', 'Walk-Up Fee', 'Companion Charge', 'Nameless fee - 2022', 'Name change fee - 2022', 'Group Fee - 6.5%', 'Group Fee', 'Nameless fee - 2021', 'Product change fee - 2022', 'Recharge - Other Revenue', 'Recharge - Other Debtors', 'Product Change Fee')) THEN 'Fees'
+  WHEN (${TABLE}.ProductName IN ('Cannes Lions Masters for Brands', 'Cannes Lions Masters for Brands Value', 'Classic Gold - Client Experience 1', 'Classic Gold - Client Experience 10', 'Classic Gold - Client Experience 5', 'Complete Gold - Cannes Lions Curated', 'Complete Platinum - Cannes Lions Curated', 'Cannes Lions Curated Value', 'Cannes Lions Curated - Gold - 2022', 'Cannes Lions Curated - Platinum - 2022', 'Complete Gold - Cannes Lions Curated - 2022', 'Complete Platinum - Cannes Lions Curated - 2022', 'Festival Advisory', 'Salon Croisette', 'Pantiero Cabana')) THEN 'Curated'
+  ELSE 'Not Grouped'
+  END ;;
+  }
+
+
+
+
+  dimension: days_to_festival_completed_2024 {
+    type: number
+    sql: date_diff(DATE '2024-06-17' , current_date(), DAY)+1  ;;
+  }
+
+  dimension: ttly_2024{
+    label: "TTLY Time Period Check 2024"
+    hidden: yes
+    type: number
+    sql: case when ${days_to_festival_completed_2023} >= ${days_to_festival_completed_2024} then 1 else 0 end ;;
+    }
+
+  dimension: Weeks_to_festival_2024{
+    type: number
+    sql: case when date_diff(${date_completed_date},'2024-06-17', week)>0 then 0 else date_diff(${date_completed_date},'2024-06-17', week) end ;;
+  }
+
+  #
+  # dimension: lifetime_orders {
+  #   description: "The total number of orders for each user"
+  #   type: number
+  #   sql: ${TABLE}.lifetime_orders ;;
+  # }
+  #
+  # dimension_group: most_recent_purchase {
+  #   description: "The date when each user last ordered"
+  #   type: time
+  #   timeframes: [date, week, month, year]
+  #   sql: ${TABLE}.most_recent_purchase_at ;;
+  # }
+  #
+  # measure: total_lifetime_orders {
+  #   description: "Use this for counting lifetime orders across many users"
+  #   type: sum
+  #   sql: ${lifetime_orders} ;;
+
+
+
+# view: delegates_summary2023_tab_view {
+#   # Or, you could make this view a derived table, like this:
+#   derived_table: {
+#     sql: SELECT
+#         user_id as user_id
+#         , COUNT(*) as lifetime_orders
+#         , MAX(orders.created_at) as most_recent_purchase_at
+#       FROM orders
+#       GROUP BY user_id
+#       ;;
+#   }
+#
+#   # Define your dimensions and measures here, like this:
+#   dimension: user_id {
+#     description: "Unique ID for each user that has ordered"
+#     type: number
+#     sql: ${TABLE}.user_id ;;
+#   }
+#
+#   dimension: lifetime_orders {
+#     description: "The total number of orders for each user"
+#     type: number
+#     sql: ${TABLE}.lifetime_orders ;;
+#   }
+#
+#   dimension_group: most_recent_purchase {
+#     description: "The date when each user last ordered"
+#     type: time
+#     timeframes: [date, week, month, year]
+#     sql: ${TABLE}.most_recent_purchase_at ;;
+#   }
+#
+#   measure: total_lifetime_orders {
+#     description: "Use this for counting lifetime orders across many users"
+#     type: sum
+#     sql: ${lifetime_orders} ;;
+#   }
+# }
+
+
+  dimension: days_to_festival_completed_2022 {
+    type: number
+    sql: case when ${festivalyear} = '2022' then date_diff(DATE '2022-06-20' , ${date_completed_date}, DAY) end ;;
+
+  }
+
+  dimension: days_to_festival_completed_2023 {
+    type: number
+    sql: date_diff(DATE '2023-06-17' , current_date(), DAY)+1  ;;
+  }
+
+  dimension: ttly_test {
+    label: "TTLY Time Period Check"
+    hidden: yes
+    type: number
+    sql: case when ${days_to_festival_completed_2022} >= ${days_to_festival_completed_2023} then 1 else 0 end ;;
+  }
+
+dimension: Weeks_to_festival_2023{
+  type: number
+  sql: case when date_diff(${date_completed_date},'2023-06-19', week)>0 then 0 else date_diff(${date_completed_date},'2023-06-19', week) end ;;
+}
+
+
+
+
+  dimension: budgetgroup {
+    label: "Budget Group"
+    type: string
+    sql: ${TABLE}.BudgetGroup ;;
+  }
+
+  #dimension: categoryname {
+  #  label: "Category Name"
+  #  type: string
+  #  sql: ${TABLE}.CategoryName ;;
+  #}
+
+  dimension_group: date_completed {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.Date_Completed ;;
+  }
+
+
+  dimension: group_status {
+    label: "Group"
+    type: string
+    sql: ${TABLE}.GroupStatus ;;
+  }
+
+  dimension: festivalgenericname {
+    label: "Festival Generic Name"
+    type: string
+    sql: ${TABLE}.FestivalGenericName ;;
+  }
+
+  dimension: festivalyear {
+    label: "Festival Year"
+    type: string
+    sql: ${TABLE}.FestivalYear ;;
+  }
+
+  dimension: from_basket_reg__c {
+    type: string
+    sql: ${TABLE}.From_Basket_Reg__c ;;
+  }
+
+  #dimension: group {
+   # label: "Group"
+    #type: string
+    #sql: ${TABLE}.`Group` ;;
+    #NOT IN TABLE
+ # }
+
+  dimension: invoiced___city {
+    label: "Invoiced City"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_City ;;
+  }
+
+  dimension: invoiced___company_valuesegment {
+    label: "Invoiced Company Value Segment"
+    type: string
+    sql: ${TABLE}.InvoicedPerson_ValueSegment ;;
+  }
+
+  dimension: invoiced___companyactivity {
+    label: "Invoiced Company Activity"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_Activity ;;
+  }
+
+  dimension: invoiced___companybkey {
+    type: string
+    hidden: no
+    sql: ${TABLE}.InvoicedCompany_CompanyBkey ;;
+  }
+
+  dimension: invoiced___companyname {
+    label: "Invoiced Company Name"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_CompanyName ;;
+  }
+
+  dimension: invoiced___companytype {
+    label: "Invoiced Company Type"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_CompanyType ;;
+  }
+
+  dimension: invoiced___country {
+    label: "Invoiced Country"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_Country ;;
+  }
+
+  dimension: invoiced___forename {
+    label: "Invoiced Forename"
+    type: string
+    sql: ${TABLE}.InvoicedPerson_Forename ;;
+  }
+
+  dimension: invoiced___holdco {
+    label: "Invoiced HoldCo"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_HoldCo ;;
+  }
+  dimension: invoiced___identityprofile {
+    label: "Invoiced Identity Profile"
+    type: string
+    sql: ${TABLE}.InvoicedPerson_IdentityProfile ;;
+  }
+
+  dimension: invoiced___jobrole {
+    label: "Invoiced Job Role"
+    type: string
+    sql: ${TABLE}.InvoicedPerson_JobRole ;;
+  }
+
+  dimension: invoiced___name {
+    label: "Invoiced Name"
+    type: string
+    sql: ${TABLE}.InvoicedPerson_Name ;;
+  }
+
+  dimension: invoiced___network {
+    label: "Invoiced Network"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_Network ;;
+  }
+
+  dimension: invoiced___personalengagementscore {
+    label: "Invoiced Personal Engagement Score"
+    type: string
+    sql: ${TABLE}.InvoicedPerson_PersonalEngagementScore ;;
+  }
+
+  dimension: invoiced___personbkey {
+    hidden: no
+    type: string
+    sql: ${TABLE}.InvoicedPerson_PersonBKey ;;
+  }
+
+  dimension: invoiced___recordtype {
+    label: "Invoiced Record Type"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_RecordType ;;
+  }
+
+  dimension: invoiced___senioritylevel {
+    label: "Invoiced Seniority Level"
+    type: number
+    sql: ${TABLE}.InvoicedPerson_SeniorityLevel ;;
+  }
+
+  dimension: invoiced___source {
+    label: "Invoiced Source"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_Source ;;
+  }
+
+  dimension: invoiced___strategicsubgroup {
+    label: "Invoiced Strategic Subgroup"
+    type: string
+    sql: ${TABLE}.InvoicedCompany_StrategicSubGroup ;;
+  }
+
+  dimension: invoiced___surname {
+    label: "Invoiced Surname"
+    type: string
+    sql: ${TABLE}.InvoicedPerson_Surname ;;
+  }
+
+  dimension: invoiced___valuesegment {
+    label: "Invoiced Value Segment"
+    type: string
+    sql: ${TABLE}.InvoicedPerson_ValueSegment ;;
+  }
+
+  dimension: iscreditonly {
+    label: "Is Credit Only"
+    type: string
+    sql: ${TABLE}.iscreditonly ;;
+    #Not in the BQ Table
+  }
+
+  dimension: ispaid {
+    label: "Is Paid"
+    type: yesno
+    sql: ${paymentstatus}= "IsPaid";;
+    # sql: ${TABLE}.ispaid = 1 ;;
+  }
+
+  dimension: lion {
+    label: "Lion"
+    type: string
+    sql: ${TABLE}.lion ;;
+    #Not in the BQ Table
+  }
+
+  dimension: opportunitybkey {
+    type: string
+    hidden: no
+    sql: ${TABLE}.OpportunityBKey ;;
+  }
+
+  dimension: passregbkey {
+    type: string
+    primary_key: yes
+    sql: ${TABLE}.PassRegBkey ;;
+  }
+
+  dimension: paymentmethod {
+    label: "Payment Method"
+    type: string
+    sql: ${TABLE}.PaymentMethod ;;
+  }
+
+  dimension: paymentstatus {
+    label: "Payment Status"
+    type: string
+    sql: ${TABLE}.PaymentStatus ;;
+  }
+
+  dimension: prevpassregbkey {
+    type: string
+    hidden: yes
+    sql: ${TABLE}.PrevPassRegBKey ;;
+  }
+
+  dimension: productbkey {
+    type: string
+    hidden: no
+    sql: ${TABLE}.ProductBKey ;;
+  }
+
+  dimension: productclass {
+    label: "Product Class"
+    type: string
+    sql: ${TABLE}.ProductClass ;;
+
+  }
+  dimension: productname {
+    label: "Product Name"
+    type: string
+    sql: ${TABLE}.ProductName ;;
+  }
+
+  dimension: registered___city {
+    label: "Registered City"
+    type: string
+    sql: ${TABLE}.RegisteredCompany_City ;;
+  }
+
+  dimension: registered___company_valuesegment {
+    label: "Registered Company Value Segment"
+    type: string
+    sql: ${TABLE}.RegisteredCompany_ValueSegment ;;
+  }
+
+  dimension: registered___companyactivity {
+    label: "Registered Company Activity"
+    type: string
+    sql: ${TABLE}.Registered_CompanyActivity ;;
+  }
+
+  dimension: registered___companybkey {
+    hidden: no
+    type: string
+    sql: ${TABLE}.Registered_CompanyBkey ;;
+  }
+
+  dimension: registered___companyname {
+    label: "Registered Company Name"
+    type: string
+    sql: ${TABLE}.Registered_CompanyName ;;
+  }
+
+  dimension: registered___companytype {
+    label: "Registered Company Type"
+    type: string
+    sql: ${TABLE}.RegisteredCompany_CompanyType ;;
+  }
+
+  dimension: registered___country {
+    label: "Registered Country"
+    type: string
+    sql: ${TABLE}.RegisteredCompany_Country ;;
+  }
+
+  dimension: registered___datastatus {
+    label: "Registered Data Status"
+    type: string
+    sql: ${TABLE}.RegisteredCompany_DataStatus ;;
+  }
+
+  dimension: registered___forename {
+    label: "Registered Forename"
+    type: string
+    sql: ${TABLE}.Registered_Forename ;;
+  }
+
+  dimension: registered___holdco {
+    label: "Registered HoldCo"
+    type: string
+    sql: ${TABLE}.Registered_HoldCo ;;
+  }
+
+  dimension: registered___identityprofile {
+    label: "Registered Identity Profile"
+    type: string
+    sql: ${TABLE}.Registered_IdentityProfile ;;
+  }
+
+  dimension: registered___jobrole {
+    label: "Registered Job Role"
+    type: string
+    sql: ${TABLE}.Registered_JobRole ;;
+  }
+
+  dimension: registered___name {
+    label: "Registered Name"
+    type: string
+    sql: ${TABLE}.Registered_Name ;;
+  }
+
+  dimension: registered___network {
+    label: "Registered Network"
+    type: string
+    sql: ${TABLE}.Registered_Network ;;
+  }
+
+  dimension: registered___personalengagementscore {
+    label: "Registered Personal Engagement Score"
+    type: string
+    sql: ${TABLE}.Registered_PersonalEngagementScore ;;
+  }
+
+  dimension: registered___personbkey {
+    hidden: no
+    type: string
+    sql: ${TABLE}.Registered_PersonBKey ;;
+  }
+
+  dimension: registered___recordtype {
+    label: "Registered Record Type"
+    type: string
+    sql: ${TABLE}.RegisteredCompany_RecordType ;;
+  }
+
+  dimension: registered___senioritylevel {
+    label: "Registered Seniority Level"
+    type: string
+    sql: ${TABLE}.Registered_SeniorityLevel ;;
+  }
+
+  dimension: registered___source {
+    label: "Registered Source"
+    type: string
+    sql: ${TABLE}.RegisteredCompany_Source ;;
+  }
+
+  dimension: registered___strategicsubgroup {
+    label: "Registered Strategic Subgroup"
+    type: string
+    sql: ${TABLE}.RegisteredCompany_StrategicSubGroup ;;
+  }
+
+  dimension: registered___surname {
+    label: "Registered Surname"
+    type: string
+    sql: ${TABLE}.Registered_Surname ;;
+  }
+
+  dimension: registered___valuesegment {
+    label: "Registered Value Segment"
+    type: string
+    sql: ${TABLE}.Registered_ValueSegment ;;
+  }
+
+  dimension: registered__activity {
+    label: "Registered Activity"
+    type: string
+    sql: ${TABLE}.Registered_CompanyActivity ;;
+  }
+
+  dimension: registrationstatus {
+    label: "Registration Status"
+    type: string
+    sql: ${TABLE}.RegistrationStatus ;;
+  }
+
+  dimension: reg_status {
+    label: "Status Check"
+    type: string
+    sql:  case when ${registrationstatus} = 'Cancelled' then 'Cancelled' else 'Active' end ;;
+  }
+
+  # dimension: include_2020_transfers_in_ytd {
+  # label: "Include 2020 transfers"
+  ##  type: string
+  #  sql: case when ${date_completed_date} >= '2019-07-10' then "Yes" else "No" end  ;;
+  # }
+
+  # dimension: 2023T_excl_digital{
+  #  label: "2023T Excluding Digital"
+  #   hidden: no
+  # type: string
+  # sql: case when ${productname} in ('Digital Pass','Digital Young Lion Competitor - 2021','Digital CMO Accelerator Programme','Digital CMO Accelerator Programme - 2021','Digital Pass - 2021', 'Digital Young Lion Competitor - 2022') then "No" else "Yes" end ;;
+  #  }
+
+  dimension: repeat_company {
+    label: "Repeat Company"
+    type: string
+    sql: ${TABLE}.RepeatCompany ;;
+  }
+
+  dimension_group: reportingdate {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.ReportingDate ;;
+  }
+
+  #dimension: section {
+  #  label: "Section"
+  #  type: string
+  #  sql: ${TABLE}.section ;;
+  #}
+
+  dimension: submissionstatus {
+    label: "Submission Status"
+    type: string
+    sql: ${TABLE}.SubmissionStatus ;;
+  }
+
+  dimension: value {
+    label: "Value"
+    type: string
+    sql: ${TABLE}.Value ;;
+  }
+
+  ###############################################################################################################################################
+###############################################################################################################################################
+
+  measure: count {
+    label: "Count Of Pass Reg"
+
+    type: count_distinct
+    sql: ${passregbkey} ;;
+    drill_fields: [detail*]
+  }
+
+#YTD:
+  measure: delegate_count_ytd{
+    type: sum
+    sql: case when ${value} = "Quantity" then ${TABLE}.YTD else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: delegate_count_ytd_paid {
+    type: sum
+    sql: case when ${value} = "Quantity" and ${paymentstatus} = "Paid" then ${TABLE}.YTD else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: delegate_count_ytd_unpaid {
+    type: sum
+    sql: case when ${value} = "Quantity" and ${paymentstatus} <> "Paid" then ${TABLE}.YTD else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: ytd {
+    type: sum
+    value_format: "€#,##0"
+    drill_fields: [detail*]
+    sql: ${TABLE}.YTD ;;
+  }
+
+  #measure: ytd_2024 {
+  #  type: sum
+ #   value_format: "€#,##0"
+ #   drill_fields: [detail*]
+  ##  #sql: ${TABLE}.YTD
+#    sql:where ${festivalyear} = 2024;;
+ # }
+
+
+
+
+  measure: ytd_paid {
+    type: sum
+    sql: case when ${paymentstatus} = "Paid" then ${TABLE}.YTD else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: ytd_unpaid {
+    type: sum
+    sql: case when ${paymentstatus} <> "Paid" then ${TABLE}.YTD else null end ;;
+    drill_fields: [detail*]
+  }
+
+
+#Live
+  measure: delegate_count_live{
+    type: sum
+    sql: case when ${value} = "Quantity" then ${TABLE}.Live else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: delegate_count_live_paid {
+    type: sum
+    sql: case when ${value} = "Quantity" and ${paymentstatus} = "Paid" then ${TABLE}.Live else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: delegate_count_live_unpaid {
+    type: sum
+    sql: case when ${value} = "Quantity" and ${paymentstatus} <> "Paid" then ${TABLE}.Live else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: live {
+    type: sum
+    value_format: "€#,##0"
+    drill_fields: [detail*]
+    sql: ${TABLE}.Live ;;
+  }
+
+  measure: live_paid {
+    type: sum
+    sql: case when ${paymentstatus} = "Paid" then ${TABLE}.Live else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: live_unpaid {
+    type: sum
+    sql: case when ${paymentstatus} <> "Paid" then ${TABLE}.Live else null end ;;
+    drill_fields: [detail*]
+  }
+
+
+#Yesterday
+  measure: delegate_count_yesterday{
+    type: sum
+    sql: case when ${value} = "Quantity" then ${TABLE}.Yesterday else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: yesterday {
+    type: sum
+    value_format: "€#,##0"
+    drill_fields: [detail*]
+    sql: ${TABLE}.Yesterday ;;
+  }
+
+
+#Last Week
+  measure: delegate_count_last_week{
+    type: sum
+    sql: case when ${value} = "Quantity" then ${TABLE}.LastWeek else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: lastweek {
+    type: sum
+    value_format: "€#,##0"
+    drill_fields: [detail*]
+    sql: ${TABLE}.LastWeek ;;
+  }
+
+
+
+#TTLY:
+  measure: Delegate_Count_TTLY_2022 {
+    type: count_distinct
+    description: "Count of Delegates at the same DTF as Today"
+    sql: case when ${days_to_festival_completed_2022} >= ${days_to_festival_completed_2023} then ${passregbkey} else null end ;;
+    drill_fields: [detail*]
+  }
+
+  measure: Delegate_Count_TTLY_2023 {
+    type: count_distinct
+    description: "Count of Delegates at the same DTF as Today"
+    sql: case when ${days_to_festival_completed_2023} >= ${days_to_festival_completed_2024} then ${passregbkey} else null end ;;
+    drill_fields: [detail*]
+  }
+
+
+  measure: TTLY_2022_Revenue {
+    type: sum
+    description: "Revenue at the same DTF as Today"
+    value_format: "€#,##0"
+    sql: case when ${days_to_festival_completed_2022} >= ${days_to_festival_completed_2023} and ${value} = "Revenue" and ${reg_status} = 'Active' then ${TABLE}.FY_LY else null end;;
+    drill_fields: [detail*]
+  }
+
+#Misc
+  measure: budget {
+    type: sum
+    value_format: "€#,##0"
+    drill_fields: [detail*]
+    sql: ${TABLE}.Budget ;;
+  }
+
+  measure: ttly_tf {
+    type: sum
+    value_format: "€#,##0"
+    drill_fields: [detail*]
+    sql: ${TABLE}.TTLY_TF ;;
+  }
+
+  measure: ttly_tf_y {
+    type: sum
+    value_format: "€#,##0"
+    drill_fields: [detail*]
+    sql: ${TABLE}.TTLY_TF_Y ;;
+  }
+
+  measure: ttly_so {
+    type: sum
+    value_format: "€#,##0"
+    drill_fields: [detail*]
+    sql: ${TABLE}.TTLY_SO ;;
+  }
+
+  measure: fy_ly {
+    type: sum
+    value_format: "€#,##0"
+    drill_fields: [detail*]
+    sql: ${TABLE}.FY_LY ;;
+
+  }
+
+
+
+
+
+
+
+
+
+  #is_date_completed_ytd,
+
+
+
+# ----- Sets of fields for drilling ------
+  set: detail {
+    fields: [
+      passregbkey,
+      festivalyear,
+      registered___forename,
+      invoiced___name,
+      invoiced___surname,
+      invoiced___companyname,
+      invoiced___companybkey,
+      festivalgenericname,
+      productname,
+      registered___surname,
+      invoiced___forename,
+      registered___name,
+      invoiced___holdco,
+      registered___companyname,
+      invoiced___network,
+#      categoryname,
+      paymentstatus,
+      ispaid,
+      group_status,
+      registered___source,
+      invoiced___source,
+      value,
+      reg_status,
+      date_completed_date,
+      delegate_count_ytd,
+      ttly_test,
+      ytd,
+      Delegate_Count_TTLY_2022,
+      TTLY_2022_Revenue
+    ]
+  }
+}
